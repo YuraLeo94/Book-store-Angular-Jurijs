@@ -17,7 +17,6 @@ export class ProductCardComponent implements OnInit {
 
   // If the Title exceeds 50 symbols, dots are shown
   private validateTitle(value: string): string {
-    console.log(this.product);
     return value.length > 50 ? value.slice(0, 50) + "..." : value;
   }
 }
