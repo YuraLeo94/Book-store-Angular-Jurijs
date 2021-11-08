@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Product } from '../../Products';
+import { Product } from '../../product.type';
 
 @Component({
   selector: 'app-product-card',
@@ -7,16 +7,11 @@ import { Product } from '../../Products';
   styleUrls: ['./product-card.component.less']
 })
 export class ProductCardComponent implements OnInit {
-  @Input() product!: Product;
-  
-  constructor() { }
+  @Input() product: Product;
 
-  ngOnInit(): void {
-    this.product = {...this.product, title: this.validateTitle(this.product.title)}
+  constructor() {
   }
 
-  // If the Title exceeds 50 symbols, dots are shown
-  private validateTitle(value: string): string {
-    return value.length > 50 ? value.slice(0, 50) + "..." : value;
+  public ngOnInit(): void {
   }
 }
