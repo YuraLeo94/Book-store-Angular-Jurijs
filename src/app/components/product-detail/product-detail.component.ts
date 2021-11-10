@@ -29,6 +29,7 @@ export class ProductDetailComponent implements OnInit {
     // https://trello.com/c/f4XHSHb6/14-implement-functionality-for-product-details-component
     console.log("starRating", this.starRating);
   }
+
   public disableEnableAddToCart(): void {
     if (this.count) {
       this.isAddToCart = true
