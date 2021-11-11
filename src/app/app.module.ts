@@ -9,6 +9,8 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { MatCardModule } from '@angular/material/card';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { TruncatePipe } from './shared/pipe/truncate.pipe';
+import { ShoppingDialogComponent } from './components/dialogs/shopping-dialog/shopping-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,15 @@ import { TruncatePipe } from './shared/pipe/truncate.pipe';
     HeaderComponent,
     ProductCardComponent,
     ProductListComponent,
-    TruncatePipe
+    TruncatePipe,
+    ShoppingDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
