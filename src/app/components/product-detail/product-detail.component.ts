@@ -1,24 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.less']
 })
-export class ProductDetailComponent implements OnInit {
+export class ProductDetailComponent {
 
-  count: number = 1;
+  public minAmount = 1;
+  public maxAmount = 1000;
+  public count = this.minAmount;
   //TO DO starRating replace hardcoded value with value from db
-  starRating: number = 3;
-  isAddToCart: boolean = true;
+  public starRating = 3;
+  public maxRating = 5;
+  public isAddToCart = true;
 
   constructor() {
   }
 
-  public ngOnInit(): void {
-  }
-
-  public addToCart() {
+  public addToCart():void {
     // TO DO for this was created a special task "Implement functionality for product details component" 
     // https://trello.com/c/f4XHSHb6/14-implement-functionality-for-product-details-component
     console.log("add to cart");

@@ -21,12 +21,12 @@
         <div class="amount-spin">
             <label>Amount:</label>
             <input matInput type="number" [(ngModel)]="count" (keyup)="disableEnableAddToCart()"
-                oninput="(validity.valid)||(value='');" min="1" max="1000">
+                oninput="(validity.valid)||(value='');" [min]="minAmount" [max]="maxAmount">
         </div>
         <div class="cost-rating-container">
             <div class="cost">33.99$</div>
             <div>
-                <ngb-rating [max]="5" [(ngModel)]="starRating" [(rate)]="starRating" [readonly]="false"
+                <ngb-rating [max]="maxRating" [(ngModel)]="starRating" [(rate)]="starRating" [readonly]="false"
                     (click)="getRating()"></ngb-rating>
             </div>
         </div>
