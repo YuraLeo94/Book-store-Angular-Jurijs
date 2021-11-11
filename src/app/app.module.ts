@@ -13,6 +13,8 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ShoppingDialogComponent } from './components/dialogs/shopping-dialog/shopping-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ProductCardComponent,
     ProductListComponent,
     TruncatePipe,
-    ProductDetailComponent
+    ProductDetailComponent,
+    ShoppingDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatCardModule,
     FormsModule,
     MatInputModule,
-    NgbModule
+    NgbModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
