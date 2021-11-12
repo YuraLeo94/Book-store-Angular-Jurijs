@@ -39,7 +39,6 @@ import { CompletedDialogComponent } from './components/dialogs/completed-dialog/
     BrowserAnimationsModule,
     MatCardModule,
     FormsModule,
-    MatDialogModule,
     MatInputModule,
     MatDividerModule,
     NgbModule,
