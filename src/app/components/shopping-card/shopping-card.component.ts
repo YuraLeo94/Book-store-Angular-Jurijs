@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Product } from 'src/app/product.type';
+import { MAX_AMOUNT, MIN_AMOUNT } from 'src/app/shared/global.const';
 
 @Component({
   selector: 'app-shopping-card',
@@ -9,8 +10,8 @@ import { Product } from 'src/app/product.type';
 export class ShoppingCardComponent {
 
   @Input() product: Product;
-  public minAmount = 1;
-  public maxAmount = 1000;
+  public minAmount = MIN_AMOUNT;
+  public maxAmount = MAX_AMOUNT;
   // TO DO replace hardcode count data with data from store
   public count = 1;
 
