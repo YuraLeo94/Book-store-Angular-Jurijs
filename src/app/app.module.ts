@@ -11,6 +11,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { TruncatePipe } from './shared/pipe/truncate.pipe';
 import { ShoppingDialogComponent } from './components/dialogs/shopping-dialog/shopping-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { CompletedDialogComponent } from './components/dialogs/completed-dialog/completed-dialog.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     ProductCardComponent,
     ProductListComponent,
     TruncatePipe,
-    ShoppingDialogComponent
+    ShoppingDialogComponent,
+    CompletedDialogComponent
   ],
   imports: [
     BrowserModule,
