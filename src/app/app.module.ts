@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ShoppingDialogComponent } from './components/dialogs/shopping-dialog/shopping-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { CompletedDialogComponent } from './components/dialogs/completed-dialog/completed-dialog.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     ProductListComponent,
     TruncatePipe,
     ProductDetailComponent,
-    ShoppingDialogComponent
+    ShoppingDialogComponent,
+    CompletedDialogComponent
   ],
   imports: [
     BrowserModule,
