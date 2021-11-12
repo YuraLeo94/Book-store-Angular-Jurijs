@@ -10,7 +10,12 @@ import { MatCardModule } from '@angular/material/card';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { TruncatePipe } from './shared/pipe/truncate.pipe';
 import { ShoppingDialogComponent } from './components/dialogs/shopping-dialog/shopping-dialog.component';
+import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { ShoppingCardComponent } from './components/product-card/shopping-card/shopping-card.component';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -19,14 +24,19 @@ import { MatDialogModule } from '@angular/material/dialog';
     ProductCardComponent,
     ProductListComponent,
     TruncatePipe,
-    ShoppingDialogComponent
+    ShoppingDialogComponent,
+    ShoppingCartComponent,
+    ShoppingCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatDialogModule
+    FormsModule,
+    MatDialogModule,
+    MatInputModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
