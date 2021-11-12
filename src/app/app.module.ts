@@ -27,7 +27,6 @@ import { CompletedDialogComponent } from './components/dialogs/completed-dialog/
     ProductCardComponent,
     ProductListComponent,
     TruncatePipe,
-    ShoppingDialogComponent,
     ShoppingCartComponent,
     ShoppingCardComponent,
     ProductDetailComponent,
