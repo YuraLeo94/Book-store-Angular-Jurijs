@@ -16,8 +16,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ShoppingDialogComponent } from './components/dialogs/shopping-dialog/shopping-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
-import { ShoppingCardComponent } from './components/product-card/shopping-card/shopping-card.component';
-import {MatDividerModule} from '@angular/material/divider';
+import { ShoppingCardComponent } from './components/shopping-card/shopping-card.component';
+import { MatDividerModule } from '@angular/material/divider';
 import { CompletedDialogComponent } from './components/dialogs/completed-dialog/completed-dialog.component';
 
 @NgModule({
