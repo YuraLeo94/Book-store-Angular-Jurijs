@@ -9,13 +9,16 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { MatCardModule } from '@angular/material/card';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { TruncatePipe } from './shared/pipe/truncate.pipe';
-import { ShoppingDialogComponent } from './components/dialogs/shopping-dialog/shopping-dialog.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { FormsModule } from '@angular/forms';
-import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ShoppingDialogComponent } from './components/dialogs/shopping-dialog/shopping-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { ShoppingCardComponent } from './components/product-card/shopping-card/shopping-card.component';
 import {MatDividerModule} from '@angular/material/divider';
+import { CompletedDialogComponent } from './components/dialogs/completed-dialog/completed-dialog.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import {MatDividerModule} from '@angular/material/divider';
     TruncatePipe,
     ShoppingDialogComponent,
     ShoppingCartComponent,
-    ShoppingCardComponent
+    ShoppingCardComponent,
+    ProductDetailComponent,
+    ShoppingDialogComponent,
+    CompletedDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +42,9 @@ import {MatDividerModule} from '@angular/material/divider';
     FormsModule,
     MatDialogModule,
     MatInputModule,
-    MatDividerModule
+    MatDividerModule,
+    NgbModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
