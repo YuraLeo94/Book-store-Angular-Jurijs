@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MAX_AMOUNT, MIN_AMOUNT } from 'src/app/shared/global.const';
 
 @Component({
   selector: 'app-product-detail',
@@ -7,8 +8,8 @@ import { Component } from '@angular/core';
 })
 export class ProductDetailComponent {
 
-  public minAmount = 1;
-  public maxAmount = 1000;
+  public minAmount = MIN_AMOUNT;
+  public maxAmount = MAX_AMOUNT;
   public count = this.minAmount;
   //TO DO starRating replace hardcoded value with value from db
   public starRating = 3;

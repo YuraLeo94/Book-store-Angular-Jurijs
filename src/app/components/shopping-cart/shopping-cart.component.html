@@ -1,0 +1,13 @@
+<app-shopping-card 
+    class="app-shopping-card" 
+    *ngFor="let product of mockShoppingCartData;" 
+    [product]="product">
+</app-shopping-card>
+<mat-divider></mat-divider>
+<label>
+    Total coast:
+</label>
+<div class="cost">
+    119.99$
+</div>
+<button class="checkout-btn default-button" mat-button (click)="onCheckout()">Checkout</button>

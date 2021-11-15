@@ -4,4 +4,11 @@
         <p class="mat-card-content__title">{{ product.title | truncate:50 }}</p>
         <p class="mat-card-content__cost">{{ product.cost }}$</p>
     </mat-card-content>
+    <mat-dialog-actions>
+        <div class="close" (click)="onDelete()"></div>
+        <div class="spin-wrapper">
+            <input matInput type="number" [(ngModel)]="count" oninput="(validity.valid)||(value='');" [min]="minAmount"
+                [max]="maxAmount">
+        </div>
+    </mat-dialog-actions>
 </mat-card>
