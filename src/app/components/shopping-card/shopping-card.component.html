@@ -8,7 +8,7 @@
         <div class="close" (click)="onDelete()"></div>
         <div class="spin-wrapper">
             <input matInput type="number" [(ngModel)]="count" oninput="(validity.valid)||(value='');" [min]="minAmount"
-                [max]="maxAmount">
+                [max]="maxAmount" name="amount">
         </div>
     </mat-dialog-actions>
 </mat-card>

@@ -1,0 +1,42 @@
+<div class="order-form-container">
+    <form [formGroup]="orderForm" class="order-form" novalidate>
+        <mat-form-field appearance="fill">
+            <input matInput type="text" formControlName="email" class="example-right-align"
+                placeholder="email@test.com">
+            <span matPrefix>{{ emailPrefix }}</span>
+            <mat-error *ngIf="errorHandling('email', 'required')">
+                Email is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="errorHandling('email', 'pattern')">
+                Please enter a valid email address
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <input matInput type="text" formControlName="confirmEmail" placeholder="email@test.com">
+            <span matPrefix>{{ confirmEmailPrefix }}</span>
+            <mat-error *ngIf="errorHandling('confirmEmail', 'required')">
+                Confirm email is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="errorHandling('confirmEmail', 'mismatch')">
+                Email not match
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <input matInput type="text" formControlName="nameSurname" placeholder="Name Surname">
+            <span matPrefix>{{ nameSurnamePrefix }}</span>
+            <mat-error *ngIf="errorHandling('nameSurname', 'required')">
+                Name and Surname are <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="errorHandling('nameSurname', 'maxlength')">
+                You have more than {{ nameSurnameMax }} characters
+            </mat-error>
+            <mat-error *ngIf="errorHandling('nameSurname', 'pattern')">
+                Please enter a valid Name and Surname. You can use <strong>aA-zZ</strong>, <strong>'</strong> and
+                "<strong>-</strong>"
+            </mat-error>
+        </mat-form-field>
+    </form>
+    <button (click)="onOrder()" class="order-button default-button">{{ buttonText }}</button>
+</div>
