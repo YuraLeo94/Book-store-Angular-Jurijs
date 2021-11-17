@@ -22,6 +22,8 @@ import { CompletedDialogComponent } from './components/dialogs/completed-dialog/
 import { OrderFormComponent } from './components/order-form/order-form.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { CheckoutProductCardComponent } from './components/checkout-product-card/checkout-product-card.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     ProductDetailComponent,
     ShoppingDialogComponent,
     CompletedDialogComponent,
-    OrderFormComponent
+    OrderFormComponent,
+    CheckoutComponent,
+    CheckoutProductCardComponent
   ],
   imports: [
     BrowserModule,
