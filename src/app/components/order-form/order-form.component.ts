@@ -72,9 +72,5 @@ export class OrderFormComponent implements OnInit {
       nameSurname: ['', [Validators.required, Validators.maxLength(this.nameSurnameMax), Validators.pattern(this.nameSurnamePattern)]]
     }, { validators: this.confirmEmail });
   }
-
-  public errorHandling = (control: string, error: string) => {
-    return this.orderForm.controls[control].hasError(error);
-  }
   
 }
