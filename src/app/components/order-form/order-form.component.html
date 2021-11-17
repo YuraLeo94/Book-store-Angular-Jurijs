@@ -1,8 +1,7 @@
 <div class="order-form-container">
     <form [formGroup]="orderForm" class="order-form" novalidate>
         <mat-form-field appearance="fill">
-            <input matInput type="text" formControlName="email" class="example-right-align"
-                placeholder="email@test.com">
+            <input matInput type="text" formControlName="email" placeholder="email@test.com">
             <span matPrefix>{{ emailPrefix }}</span>
             <mat-error *ngIf="errorHandling('email', 'required')">
                 Email is <strong>required</strong>

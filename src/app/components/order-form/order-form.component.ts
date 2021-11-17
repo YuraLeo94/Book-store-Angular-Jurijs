@@ -31,13 +31,13 @@ export class OrderFormComponent implements OnInit {
    */
   private nameSurnamePattern = /^([a-zA-Z]{2,}\s([a-zA-Z]{1,}'?-?[a-zA-Z]{2,}|[a-zA-Z]{1,})((\s[a-zA-Z]{1,})?(\s[a-zA-Z]{1,}\.?))?)$/;
 
-  constructor(public fb: FormBuilder, public dialog: MatDialog) { }
+  constructor(private fb: FormBuilder, private dialog: MatDialog) { }
 
   public ngOnInit(): void {
     this.reactiveForm();
   }
 
-  private validateAllFormFields(formGroup: FormGroup) {
+  private validateAllFormFields(formGroup: FormGroup): void {
     Object.keys(formGroup.controls).forEach(field => {
       const control = formGroup.get(field);
       if (control instanceof FormControl) {
@@ -76,5 +76,5 @@ export class OrderFormComponent implements OnInit {
   public errorHandling = (control: string, error: string) => {
     return this.orderForm.controls[control].hasError(error);
   }
-
+  
 }
