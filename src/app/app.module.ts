@@ -10,7 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { TruncatePipe } from './shared/pipe/truncate.pipe';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ShoppingDialogComponent } from './components/dialogs/shopping-dialog/shopping-dialog.component';
@@ -19,6 +19,9 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { ShoppingCardComponent } from './components/shopping-card/shopping-card.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { CompletedDialogComponent } from './components/dialogs/completed-dialog/completed-dialog.component';
+import { OrderFormComponent } from './components/order-form/order-form.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,8 @@ import { CompletedDialogComponent } from './components/dialogs/completed-dialog/
     ShoppingCardComponent,
     ProductDetailComponent,
     ShoppingDialogComponent,
-    CompletedDialogComponent
+    CompletedDialogComponent,
+    OrderFormComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,11 @@ import { CompletedDialogComponent } from './components/dialogs/completed-dialog/
     MatInputModule,
     MatDividerModule,
     NgbModule,
-    MatDialogModule
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

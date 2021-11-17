@@ -21,7 +21,7 @@ button {
     font-weight: 600;
 }
 
-.mat-input-element {
+input[name="amount"] {
     font-size: 16px;
     height: 30px;
     padding-right: 0;
@@ -41,4 +41,29 @@ button {
     border-radius: 3px;
     font-size: 18px;
     font-weight: 600;
+}
+
+// overwriting input and form styles for order form
+.order-form {
+    mat-form-field .mat-form-field-flex {
+        border: 1px solid #000;
+        border-radius: 2px;
+        padding: 0;
+        background-color: #d3d3d3;
+        align-items: center;
+    }
+
+    .mat-form-field-subscript-wrapper {
+        font-size: 12px;
+    }
+
+    .mat-form-field-infix {
+        background-color: #fff;
+        padding: 1px 0 0 0;
+        border: 0;
+    }
+    
+    .mat-form-field-prefix {
+        padding: 0 10px;
+    }
 }

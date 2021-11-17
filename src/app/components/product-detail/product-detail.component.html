@@ -21,7 +21,7 @@
         <div class="amount-spin">
             <label>Amount:</label>
             <input matInput type="number" [(ngModel)]="count" (keyup)="disableEnableAddToCart()"
-                oninput="(validity.valid)||(value='');" [min]="minAmount" [max]="maxAmount">
+                oninput="(validity.valid)||(value='');" [min]="minAmount" [max]="maxAmount" name="amount">
         </div>
         <div class="cost-rating-container">
             <div class="cost">33.99$</div>
@@ -30,6 +30,6 @@
                     (click)="getRating()"></ngb-rating>
             </div>
         </div>
-        <button class="add-cart-btn default-button" mat-button (click)="addToCart()" [disabled]="!isAddToCart">Add to cart</button>
+        <button class="add-cart-button default-button" mat-button (click)="addToCart()" [disabled]="!isAddToCart">Add to cart</button>
     </mat-card-actions>
 </mat-card>
