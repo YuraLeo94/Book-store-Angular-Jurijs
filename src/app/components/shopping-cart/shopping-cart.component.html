@@ -1,7 +1,4 @@
-<app-shopping-card 
-    class="app-shopping-card" 
-    *ngFor="let product of mockShoppingCartData;" 
-    [product]="product">
+<app-shopping-card class="app-shopping-card" *ngFor="let product of mockShoppingCartData;" [product]="product">
 </app-shopping-card>
 <mat-divider></mat-divider>
 <label>
@@ -10,4 +7,5 @@
 <div class="cost">
     119.99$
 </div>
-<button class="checkout-button default-button" mat-button (click)="onCheckout()">Checkout</button>
+<button class="checkout-button default-button" mat-button (click)="onCheckout()"
+    [routerLink]="['/checkout']">Checkout</button>

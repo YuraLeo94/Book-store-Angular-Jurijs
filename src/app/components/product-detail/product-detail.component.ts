@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MAX_AMOUNT, MIN_AMOUNT } from 'src/app/shared/global.const';
+import { ShoppingDialogComponent } from '../dialogs/shopping-dialog/shopping-dialog.component';
 
 @Component({
   selector: 'app-product-detail',
@@ -16,13 +18,14 @@ export class ProductDetailComponent {
   public maxRating = 5;
   public isAddToCart = true;
 
-  constructor() {
+  constructor(private dialog: MatDialog) {
   }
 
   public addToCart():void {
     // TO DO for this was created a special task "Implement functionality for product details component" 
     // https://trello.com/c/f4XHSHb6/14-implement-functionality-for-product-details-component
     console.log("add to cart");
+    this.dialog.open(ShoppingDialogComponent);
   }
 
   public getRating(): void {

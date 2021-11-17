@@ -17,11 +17,13 @@ export class ShoppingDialogComponent {
   public onGoToCart():void {
     // TO DO https://trello.com/c/5GUVUqGA/18-implement-functionality-for-shopping-dialog
     console.log("onGoToCart");
+    this.dialogRef.close();
   }
 
   public onContinueShop():void {
     // TO DO https://trello.com/c/5GUVUqGA/18-implement-functionality-for-shopping-dialog
     console.log("onContinueShop");
+    this.dialogRef.close();
   }
 
 }
