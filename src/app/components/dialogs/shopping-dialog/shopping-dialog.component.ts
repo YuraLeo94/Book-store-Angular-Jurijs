@@ -10,19 +10,15 @@ export class ShoppingDialogComponent {
 
   constructor(public dialogRef: MatDialogRef<ShoppingDialogComponent>) { }
 
-  public onClose():void {
+  public onClose(): void {
     this.dialogRef.close();
   }
 
-  public onGoToCart():void {
-    // TO DO https://trello.com/c/5GUVUqGA/18-implement-functionality-for-shopping-dialog
-    console.log("onGoToCart");
+  public onGoToCart(): void {
     this.dialogRef.close();
   }
 
-  public onContinueShop():void {
-    // TO DO https://trello.com/c/5GUVUqGA/18-implement-functionality-for-shopping-dialog
-    console.log("onContinueShop");
+  public onContinueShop(): void {
     this.dialogRef.close();
   }
 
