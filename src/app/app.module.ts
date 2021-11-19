@@ -24,6 +24,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CheckoutProductCardComponent } from './components/checkout-product-card/checkout-product-card.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -53,8 +54,8 @@ import { CheckoutProductCardComponent } from './components/checkout-product-card
     MatDialogModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
-
+    MatNativeDateModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
