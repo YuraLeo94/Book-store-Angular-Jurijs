@@ -16,7 +16,7 @@ export class BackButtonComponent {
     this.location.back()
   }
 
-  public showBackButton(): boolean {
+  public get showBackButton(): boolean {
     return this.router.url !== '/';
   }
 
