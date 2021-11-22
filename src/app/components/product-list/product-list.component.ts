@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PRODUCTS } from 'src/app/mock-products.const';
 import { Product } from 'src/app/product.type';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -8,10 +8,14 @@ import { Product } from 'src/app/product.type';
   styleUrls: ['./product-list.component.less']
 })
 export class ProductListComponent implements OnInit {
-  products: Product[] = PRODUCTS;
-  constructor() { }
+
+  //TO DO by default set data from store
+  public products: Product[] = [];
+  constructor(public productService: ProductService) { }
 
   public ngOnInit(): void {
+    // TO DO update store data
+    this.productService.getProducts().subscribe((products) => (this.products = products));
   }
 
   public openProductDetail(product: Product): void {
