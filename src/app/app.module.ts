@@ -25,6 +25,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CheckoutProductCardComponent } from './components/checkout-product-card/checkout-product-card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BackButtonComponent } from './components/back-button/back-button.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { HttpClientModule } from '@angular/common/http';
     CompletedDialogComponent,
     OrderFormComponent,
     CheckoutComponent,
-    CheckoutProductCardComponent
+    CheckoutProductCardComponent,
+    BackButtonComponent
   ],
   imports: [
     BrowserModule,
