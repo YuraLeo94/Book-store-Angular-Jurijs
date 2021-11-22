@@ -17,11 +17,11 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  getProducts(): Observable<Product[]> {
+  public getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.productsApiUrl);
   }
 
-  updateProducts(product: Product): Observable<Product> {
+  public updateProducts(product: Product): Observable<Product> {
     const url = `${this.productsApiUrl}/${product.id}`;
     return this.http.put<Product>(url, product, httpOptions);
   }
