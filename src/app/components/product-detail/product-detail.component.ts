@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Product } from 'src/app/product.type';
+import { ProductService } from 'src/app/services/product.service';
 import { MAX_AMOUNT, MIN_AMOUNT } from 'src/app/shared/global.const';
 import { ShoppingDialogComponent } from '../dialogs/shopping-dialog/shopping-dialog.component';
 
@@ -8,17 +10,22 @@ import { ShoppingDialogComponent } from '../dialogs/shopping-dialog/shopping-dia
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.less']
 })
-export class ProductDetailComponent {
+export class ProductDetailComponent implements OnInit {
 
+  public product: Product;
   public minAmount = MIN_AMOUNT;
   public maxAmount = MAX_AMOUNT;
   public count = this.minAmount;
-  //TO DO starRating replace hardcoded value with value from db
-  public starRating = 3;
+  public starRating: number;
   public maxRating = 5;
   public isAddToCart = true;
 
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog, public productService: ProductService) {
+  }
+
+  public ngOnInit(): void {
+    this.product = this.productService.ActiveProduct;
+    this.starRating = this.product.rating;
   }
 
   public addToCart():void {
@@ -32,6 +39,9 @@ export class ProductDetailComponent {
     // TO DO save rating value to the bd
     // https://trello.com/c/f4XHSHb6/14-implement-functionality-for-product-details-component
     console.log("starRating", this.starRating);
+    const product = {...this.product, rating: this.starRating};
+    console.log("updateProd", product);
+    this.productService.updateProducts(product);
   }
 
   public disableEnableAddToCart(): void {

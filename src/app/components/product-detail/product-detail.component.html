@@ -1,20 +1,11 @@
 <!-- TO DO with routing task remove hardcode product data -->
 <!-- https://trello.com/c/B19DNFJb/10-implement-routing -->
 <mat-card>
-    <mat-card-title>Title</mat-card-title>
-    <img src="https://images.pexels.com/photos/3265460/pexels-photo-3265460.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
-        alt="detail-test">
+    <mat-card-title>{{ product.title }}</mat-card-title>
+    <img src={{product.image}}
+        alt={{product.imageAlt}}>
     <mat-card-content>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-            sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-            ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo,
-            fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae,
-            justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper
-            nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
-            Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius
-            laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies
-            nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero,
-            sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar,</p>
+        <p>{{ product.description }}</p>
 
     </mat-card-content>
     <mat-card-actions>
@@ -24,7 +15,7 @@
                 oninput="(validity.valid)||(value='');" [min]="minAmount" [max]="maxAmount" name="amount">
         </div>
         <div class="cost-rating-container">
-            <div class="cost">33.99$</div>
+            <div class="cost">{{ product.cost }}</div>
             <div>
                 <ngb-rating [max]="maxRating" [(ngModel)]="starRating" [(rate)]="starRating" [readonly]="false"
                     (click)="getRating()"></ngb-rating>
