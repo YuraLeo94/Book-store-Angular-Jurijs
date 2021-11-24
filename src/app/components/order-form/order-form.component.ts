@@ -11,7 +11,7 @@ import { CompletedDialogComponent } from '../dialogs/completed-dialog/completed-
 })
 export class OrderFormComponent implements OnInit {
 
-  @Output() resetCartData = new EventEmitter();
+  @Output() resetCartData = new EventEmitter<void>();
   public orderForm: FormGroup;
   public emailPrefix = "email:";
   public confirmEmailPrefix = "confirm email:";

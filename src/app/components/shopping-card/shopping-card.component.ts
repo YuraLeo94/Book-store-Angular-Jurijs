@@ -33,11 +33,7 @@ export class ShoppingCardComponent implements OnInit {
     this.cartService.updateTotalSum((this.cartItem.ammount - this.prevAmout) * this.cartItem.product.cost);
     this.prevAmout = this.cartItem.ammount;
 
-    if (this.cartItem.ammount) {
-      this.disableEnableCheckout.emit(false);
-    } else {
-      this.disableEnableCheckout.emit(true);
-    }
+    this.cartItem.ammount ? this.disableEnableCheckout.emit(false) : this.disableEnableCheckout.emit(true);
   }
-  
+
 }
