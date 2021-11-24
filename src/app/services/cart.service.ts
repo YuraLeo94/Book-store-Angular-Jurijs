@@ -38,7 +38,7 @@ export class CartService {
     }
   }
 
-  public updateTotalSum(sum: number) {
+  public updateTotalSum(sum: number): void {
     this._cart.totalSum = Number((this._cart.totalSum + sum).toFixed(2));
   }
 
