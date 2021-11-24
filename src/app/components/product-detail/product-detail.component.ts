@@ -38,7 +38,7 @@ export class ProductDetailComponent implements OnInit {
     this.productService.updateProduct({ ...this.product, rating: this.starRating }).subscribe();
   }
 
-  public get totalCoast() {
+  private get totalCoast(): number {
     return this.product.cost * this.count;
   }
 

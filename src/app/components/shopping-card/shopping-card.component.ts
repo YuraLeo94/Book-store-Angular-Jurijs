@@ -25,7 +25,7 @@ export class ShoppingCardComponent implements OnInit {
     this.cartService.removeFromCart(this.cartItem.product.id, this.productTotalSum);
   }
 
-  private get productTotalSum() {
+  private get productTotalSum(): number {
     return this.cartItem.ammount * this.cartItem.product.cost;
   }
 
