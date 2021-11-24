@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Product } from 'src/app/product.type';
+import { CartItem } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-checkout-product-card',
@@ -8,6 +8,6 @@ import { Product } from 'src/app/product.type';
 })
 export class CheckoutProductCardComponent {
 
-  @Input() product: Product;
+  @Input() cartItem: CartItem;
 
 }

@@ -9,17 +9,14 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductListComponent implements OnInit {
 
-  //TO DO by default set data from store
-  public products: Product[] = [];
-  test:any;
-  constructor(public productService: ProductService) { }
+  public products: Product[];
+  constructor(private productService: ProductService) { }
 
   public ngOnInit(): void {
-    this.productService.getProducts().add(() => (this.products = this.productService.getProductData()));
+    this.productService.getProducts().add(() => (this.products = this.productService.productData));
   }
 
   public openProductDetail(product: Product): void {
-    this.productService.setActiveProduct(product);
-    console.log("openProductDetail", product);
+    this.productService.detailsOfSelectedProduct = product;
   }
 }

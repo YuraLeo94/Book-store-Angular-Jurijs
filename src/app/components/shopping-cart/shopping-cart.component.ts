@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-import { PRODUCTS } from 'src/app/mock-products.const';
-import { Product } from 'src/app/product.type';
+import { Component, OnInit } from '@angular/core';
+import { Cart, CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -8,11 +7,19 @@ import { Product } from 'src/app/product.type';
   styleUrls: ['./shopping-cart.component.less']
 })
 
-export class ShoppingCartComponent {
+export class ShoppingCartComponent implements OnInit {
 
-  mockShoppingCartData: Product[] = PRODUCTS;
+  public cartData: Cart;
+  public isCheckout = false;
 
-  public onCheckout(): void {
-    console.log("onCheckout", this.mockShoppingCartData);
+  constructor(private cartService: CartService) { }
+
+  public ngOnInit(): void {
+    this.cartData = this.cartService.cart;
   }
+
+  public disableEnableCheckout(value: boolean): void {
+    this.isCheckout = value;
+  }
+  
 }

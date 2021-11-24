@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Product } from 'src/app/product.type';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CartItem, CartService } from 'src/app/services/cart.service';
 import { MAX_AMOUNT, MIN_AMOUNT } from 'src/app/shared/global.const';
 
 @Component({
@@ -7,16 +7,37 @@ import { MAX_AMOUNT, MIN_AMOUNT } from 'src/app/shared/global.const';
   templateUrl: './shopping-card.component.html',
   styleUrls: ['./shopping-card.component.less']
 })
-export class ShoppingCardComponent {
+export class ShoppingCardComponent implements OnInit {
 
-  @Input() product: Product;
+  @Input() cartItem: CartItem;
+  @Output() disableEnableCheckout = new EventEmitter<boolean>();
+  public prevAmout: number;
   public minAmount = MIN_AMOUNT;
   public maxAmount = MAX_AMOUNT;
-  // TO DO replace hardcode count data with data from store
-  public count = 1;
+
+  constructor(private cartService: CartService) { }
+
+  public ngOnInit(): void {
+    this.prevAmout = this.cartItem.ammount;
+  }
 
   public onDelete(): void {
-    //TO DO https://trello.com/c/uXgRDIDk/15-implement-functionality-for-shopping-cart-component
-    console.log("onDelete", this.product);
+    this.cartService.removeFromCart(this.cartItem.product.id, this.productTotalSum);
   }
+
+  private get productTotalSum() {
+    return this.cartItem.ammount * this.cartItem.product.cost;
+  }
+
+  public onChange() {
+    this.cartService.updateTotalSum((this.cartItem.ammount - this.prevAmout) * this.cartItem.product.cost);
+    this.prevAmout = this.cartItem.ammount;
+
+    if (this.cartItem.ammount) {
+      this.disableEnableCheckout.emit(false);
+    } else {
+      this.disableEnableCheckout.emit(true);
+    }
+  }
+  
 }

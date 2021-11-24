@@ -14,29 +14,29 @@ const httpOptions = {
 })
 export class ProductService {
   private productsApiUrl = 'http://localhost:5000/products';
-  private productData: Product[] = [];
-  private activeProduct: Product;
+  private _productData: Product[] = [];
+  private _detailsOfSelectedProduct: Product;
 
   constructor(private http: HttpClient) { }
 
   public getProducts(): Subscription {
-    return this.http.get<Product[]>(this.productsApiUrl).subscribe((products) => (this.productData = products));
+    return this.http.get<Product[]>(this.productsApiUrl).subscribe((products) => (this._productData = products));
   }
 
-  public updateProducts(product: Product): Observable<Product> {
+  public updateProduct(product: Product): Observable<Product> {
     const url = `${this.productsApiUrl}/${product.id}`;
     return this.http.put<Product>(url, product, httpOptions);
   }
 
-  public getProductData(): Product[] {
-    return this.productData;
+  public get productData(): Product[] {
+    return this._productData;
   }
 
-  public setActiveProduct(product: Product): void {
-    this.activeProduct = product;
+  public set detailsOfSelectedProduct(product: Product) {
+    this._detailsOfSelectedProduct = product;
   }
 
-  public get ActiveProduct(): Product {
-    return this.activeProduct;
+  public get detailsOfSelectedProduct(): Product {
+    return this._detailsOfSelectedProduct;
   }
 }

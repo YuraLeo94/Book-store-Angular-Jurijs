@@ -1,11 +1,12 @@
-<app-shopping-card class="app-shopping-card" *ngFor="let product of mockShoppingCartData;" [product]="product">
+<app-shopping-card class="app-shopping-card" *ngFor="let cartItem of cartData.cartItems;" [cartItem]="cartItem"
+    (disableEnableCheckout)="disableEnableCheckout($event)">
 </app-shopping-card>
 <mat-divider></mat-divider>
 <label>
     Total coast:
 </label>
 <div class="cost">
-    119.99$
+    {{ cartData.totalSum }}
 </div>
-<button class="checkout-button default-button" mat-button (click)="onCheckout()"
+<button class="checkout-button default-button" mat-button [disabled]="isCheckout"
     [routerLink]="['/checkout']">Checkout</button>
