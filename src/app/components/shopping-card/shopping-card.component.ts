@@ -29,7 +29,7 @@ export class ShoppingCardComponent implements OnInit {
     return this.cartItem.ammount * this.cartItem.product.cost;
   }
 
-  public onChange() {
+  public onChange(): void {
     this.cartService.updateTotalSum((this.cartItem.ammount - this.prevAmout) * this.cartItem.product.cost);
     this.prevAmout = this.cartItem.ammount;
 

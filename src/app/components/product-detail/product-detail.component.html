@@ -16,7 +16,7 @@
             <div class="cost">{{ product.cost }}</div>
             <div>
                 <ngb-rating [max]="maxRating" [(ngModel)]="starRating" [(rate)]="starRating" [readonly]="false"
-                    (click)="getRating()"></ngb-rating>
+                    (click)="updateRating()"></ngb-rating>
             </div>
         </div>
         <button class="add-cart-button default-button" mat-button (click)="addToCart()" [disabled]="!isAddToCart">Add to cart</button>

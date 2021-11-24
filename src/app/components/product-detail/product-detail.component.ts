@@ -34,7 +34,7 @@ export class ProductDetailComponent implements OnInit {
     this.dialog.open(ShoppingDialogComponent);
   }
 
-  public getRating(): void {
+  public updateRating(): void {
     this.productService.updateProduct({ ...this.product, rating: this.starRating }).subscribe();
   }
 
