@@ -1,17 +1,27 @@
-import { Component } from '@angular/core';
-import { PRODUCTS } from 'src/app/mock-products.const';
-import { Product } from 'src/app/product.type';
+import { Component, OnInit } from '@angular/core';
+import { CartItem, CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.less']
 })
-export class CheckoutComponent {
+export class CheckoutComponent implements OnInit {
 
-  // TO DO replace mock data with data from server
-  public mockCheckoutCartData: Product[] = PRODUCTS;
+  public cartItems: CartItem[];
   public costLabel = "Total coast:";
-  // TO DO replace hardcode totalCost data with data from store
-  public totalCost = 119.97;
+  public totalCost: number;
+
+  constructor(private cartService: CartService) { }
+
+  public ngOnInit(): void {
+    const cart = this.cartService.cart;
+    this.cartItems = cart.cartItems;
+    this.totalCost = cart.totalSum;
+  }
+
+  public resetCartData():void {
+    this.cartItems = [];
+    this.totalCost = 0;
+  }
 }

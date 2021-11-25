@@ -1,7 +1,7 @@
 <app-checkout-product-card
     class="app-checkout-product-card" 
-    *ngFor="let product of mockCheckoutCartData;" 
-    [product]="product">
+    *ngFor="let cartItem of cartItems;" 
+    [cartItem]="cartItem">
 </app-checkout-product-card>
 <div class="cost-container">
     <label>
@@ -12,4 +12,4 @@
     </div>
 </div>
 <mat-divider></mat-divider>
-<app-order-form></app-order-form>
+<app-order-form (resetCartData)="resetCartData()"></app-order-form>

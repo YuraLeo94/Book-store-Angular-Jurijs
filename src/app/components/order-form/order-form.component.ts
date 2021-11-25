@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { CartService } from 'src/app/services/cart.service';
 import { CompletedDialogComponent } from '../dialogs/completed-dialog/completed-dialog.component';
 
 @Component({
@@ -10,6 +11,7 @@ import { CompletedDialogComponent } from '../dialogs/completed-dialog/completed-
 })
 export class OrderFormComponent implements OnInit {
 
+  @Output() resetCartData = new EventEmitter<void>();
   public orderForm: FormGroup;
   public emailPrefix = "email:";
   public confirmEmailPrefix = "confirm email:";
@@ -31,7 +33,7 @@ export class OrderFormComponent implements OnInit {
    */
   private nameSurnamePattern = /^([a-zA-Z]{2,}\s([a-zA-Z]{1,}'?-?[a-zA-Z]{2,}|[a-zA-Z]{1,})((\s[a-zA-Z]{1,})?(\s[a-zA-Z]{1,}\.?))?)$/;
 
-  constructor(private fb: FormBuilder, private dialog: MatDialog) { }
+  constructor(private fb: FormBuilder, private dialog: MatDialog, private cartService: CartService) { }
 
   public ngOnInit(): void {
     this.reactiveForm();
@@ -52,6 +54,8 @@ export class OrderFormComponent implements OnInit {
     if (!this.orderForm.valid) {
       this.validateAllFormFields(this.orderForm);
     } else {
+      this.cartService.resetCartData();
+      this.resetCartData.emit();
       this.dialog.open(CompletedDialogComponent, { height: '320px' });
     }
   }

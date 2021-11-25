@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Product } from 'src/app/product.type';
+import { CartService } from 'src/app/services/cart.service';
+import { ProductService } from 'src/app/services/product.service';
 import { MAX_AMOUNT, MIN_AMOUNT } from 'src/app/shared/global.const';
 import { ShoppingDialogComponent } from '../dialogs/shopping-dialog/shopping-dialog.component';
 
@@ -8,30 +11,35 @@ import { ShoppingDialogComponent } from '../dialogs/shopping-dialog/shopping-dia
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.less']
 })
-export class ProductDetailComponent {
+export class ProductDetailComponent implements OnInit {
 
+  public product: Product;
   public minAmount = MIN_AMOUNT;
   public maxAmount = MAX_AMOUNT;
   public count = this.minAmount;
-  //TO DO starRating replace hardcoded value with value from db
-  public starRating = 3;
+  public starRating: number;
   public maxRating = 5;
   public isAddToCart = true;
 
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog, private productService: ProductService, private cartService: CartService) {
   }
 
-  public addToCart():void {
-    // TO DO for this was created a special task "Implement functionality for product details component" 
-    // https://trello.com/c/f4XHSHb6/14-implement-functionality-for-product-details-component
-    console.log("add to cart");
+  public ngOnInit(): void {
+    this.product = this.productService.detailsOfSelectedProduct;
+    this.starRating = this.product.rating;
+  }
+
+  public addToCart(): void {
+    this.cartService.updateCart(this.product, this.count, this.totalCoast);
     this.dialog.open(ShoppingDialogComponent);
   }
 
-  public getRating(): void {
-    // TO DO save rating value to the bd
-    // https://trello.com/c/f4XHSHb6/14-implement-functionality-for-product-details-component
-    console.log("starRating", this.starRating);
+  public updateRating(): void {
+    this.productService.updateProduct({ ...this.product, rating: this.starRating }).subscribe();
+  }
+
+  private get totalCoast(): number {
+    return this.product.cost * this.count;
   }
 
   public disableEnableAddToCart(): void {
