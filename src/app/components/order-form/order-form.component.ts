@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { CartService } from 'src/app/services/cart.service';
 import { CompletedDialogComponent } from '../dialogs/completed-dialog/completed-dialog.component';
@@ -39,21 +39,8 @@ export class OrderFormComponent implements OnInit {
     this.reactiveForm();
   }
 
-  private validateAllFormFields(formGroup: FormGroup): void {
-    Object.keys(formGroup.controls).forEach(field => {
-      const control = formGroup.get(field);
-      if (control instanceof FormControl) {
-        control.markAsTouched({ onlySelf: true });
-      } else if (control instanceof FormGroup) {
-        this.validateAllFormFields(control);
-      }
-    });
-  }
-
   public onOrder(): void {
-    if (!this.orderForm.valid) {
-      this.validateAllFormFields(this.orderForm);
-    } else {
+    if (this.orderForm.valid) {
       this.cartService.resetCartData();
       this.resetCartData.emit();
       this.dialog.open(CompletedDialogComponent, { height: '320px' });
@@ -76,5 +63,5 @@ export class OrderFormComponent implements OnInit {
       nameSurname: ['', [Validators.required, Validators.maxLength(this.nameSurnameMax), Validators.pattern(this.nameSurnamePattern)]]
     }, { validators: this.confirmEmail });
   }
-  
+
 }
