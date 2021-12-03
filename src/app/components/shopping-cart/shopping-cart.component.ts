@@ -20,7 +20,6 @@ export class ShoppingCartComponent implements OnInit {
   public disableEnableCheckout(): boolean {
     let isDisableCheckoutButton = false;
     this.cartData.cartItems.forEach(element => {
-      console.log("elementAmmount", element.ammount)
       if (element.ammount === null) {
         isDisableCheckoutButton = true;
       }
