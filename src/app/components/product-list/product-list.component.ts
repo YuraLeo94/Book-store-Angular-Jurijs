@@ -20,7 +20,6 @@ export class ProductListComponent implements OnInit {
     } else {
       this.productService.getProducts().subscribe(products => (this.products = products)).add(() => (this.productService.productsData = this.products));
     }
-    // this.productService.getProducts().subscribe(products => (this.products = products));
   }
 
   public openProductDetail(product: Product): void {
