@@ -11,7 +11,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Link to git pages/book sotre site
 
-`[https://yuraleo94.github.io/training-website/](https://yuraleo94.github.io/training-website/)`
+[https://yuraleo94.github.io/training-website/](https://yuraleo94.github.io/training-website/).
 
 **Note:** On this site, only rating have not full functionality, namely when you click rating and go back to the home page and after it open book again rating will be 0. In the local version, the rating shows your last picked value, when you pick the rating value, go to the home page and reload the page and go back to this book.  
 
